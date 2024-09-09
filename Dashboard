@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DASHBOARD TALENT">
+    <title>DASHBOARD TALENT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            background: linear-gradient(45deg, #ff711a, #ff711a , #ffea4d);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #004d40;
+        }
+
+        .header {
+            height: 80vh;
+            background: url('https://i.ibb.co.com/zS8cYxG/Desain-tanpa-judul-5.png') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-top: 60px;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #ffffff; /* Default section color */
+        }
+
+        .adminSection {
+            background-color: #ffffff; /* Green Light */
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .formulirSection {
+            background-color: #B9B9B9; /* Orange Light */
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .formulirSection h2,
+        .formulirSection p {
+            color: #ffffff; /* Warna teks */
+            size: 2,5rem;
+        }
+
+        .dokumenSection {
+            background-color: #ffffff; /* Blue Light */
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ff711a;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+
+        .box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #ff711a;
+        }
+
+        .box p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .box a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff711a;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .box a:hover {
+          background: linear-gradient(to bottom, #ff711a, #ffea4d);
+            transform: translateY(-2px);
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer {
+            padding: 20px 10px;
+            display: flex;
+            background-color: #242424;
+            color: white;
+            text-align: center;
+            font-size: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            position: relative;
+            height: 10px;
+        }
+
+        .footer p {
+            font-size: 0.8rem; /* Mengubah ukuran teks */
+            color: white; /* Warna teks */
+            font-style: italic;
+            padding-top: 25px;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to bottom, #ff711a, #ff711a , #ffea4d);
+        }
+
+        .password-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-content h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .popup-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .popup-content button {
+            background-color: #ff711a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background: linear-gradient(to bottom, #ff711a, #ff711a , #ffea4d);
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 90%;
+            }
+        }
+
+        .scroll-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            overflow-x: auto; /* Allows horizontal scroll if needed */
+            padding: 20px;
+        }
+
+        .scroll-box {
+            background-color: white;
+            color: #ff711a; /* Orange color for text */
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 3D effect */
+        }
+
+        .scroll-box:hover {
+            background: linear-gradient(to bottom, #ff711a, #ff711a , #ffea4d);
+            color: white; /* White text on hover */
+        }
+
+        @media (max-width: 768px) {
+            .scroll-container {
+                flex-direction: row;
+            }
+
+            .scroll-box {
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes fadeIn.visible {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Keyframes for slide-in animation */
+        @keyframes slideIn.visible {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .box {
+            animation: slideIn 0.6s ease-out;
+        } 
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SLEEPCALLMU</div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="header fade-in">
+        <div class="header-content">
+            <h1>DASHBOARD TALENT</h1>
+            <p>Jelajahi pengalaman yang lebih baik</p>
+            <div class="scroll-container">
+              <div class="scroll-box" onclick="scrollToSection('adminSection')">Admin</div>
+              <div class="scroll-box" onclick="scrollToSection('formulirSection')">Formulir</div>
+              <div class="scroll-box" onclick="scrollToSection('dokumenSection')">Dokumen</div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Nomor Admin Section -->
+    <section id="adminSection" class="section adminSection slide-in">
+        <h2>KONTAK ADMIN</h2>
+        <div class="container">
+            <div class="box">
+                <h3>Admin Personalia</h3>
+                <p>Hubungi admin personalia untuk perizinan cuti termasuk untuk kritik saran.</p>
+                <a href="https://wa.me/+6283159214239" target="_blank">Hubungi</a>
+            </div>
+            <div class="box">
+                <h3>Admin Job</h3>
+                <p>Hubungi admin job untuk semua kebutuhan terkait pekerjaan.</p>
+                <a href="https://wa.me/+6287804001094" target="_blank">Hubungi</a>
+            </div>
+            <div class="box">
+                <h3>Admin Finance</h3>
+                <p>Dapatkan informasi untuk penggajian dan informasi lainnya terkait finance.</p>
+                <a href="https://wa.me/+6289515017987" target="_blank">Hubungi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulir Section -->
+    <section id="formulirSection" class="section formulirSection slide-in">
+        <h2>FORMULIR</h2>
+        <div class="container">
+            <div class="box">
+                <h3>Bukti Job</h3>
+                <p>Isi formulir untuk pengumpulan bukti job khusus talent.</p>
+                <a href="https://bit.ly/ReportJOBTalent" target="_blank">Isi Formulir</a>
+            </div>
+            <div class="box">
+              <h3>Bukti Job (Probation)</h3>
+              <p>Isi formulir untuk pengumpulan bukti job khusus probation.</p>
+              <a href="https://bit.ly/ReportJobProbation" target="_blank">Isi Formulir</a>
+          </div>
+      </div>
+  </section>
+
+  <!-- File Dokumen Section -->
+  <section id="dokumenSection" class="section dokumenSection slide-in">
+      <h2>FILE TALENT</h2>
+      <div class="container">
+          <div class="box">
+              <h3>Rules Talent</h3>
+              <p>Unduh dokumen Rules Talent untuk informasi lebih lanjut terkait peraturan talent.</p>
+              <a href="#" data-file-url="https://drive.usercontent.google.com/u/0/uc?id=1lLeSj2aSPU7Y5Z8xb_2pR-6TUKJlGigM&export=download" onclick="showPasswordPopup('rulesTalent')">Unduh</a>
+          </div>
+          <div class="box">
+              <h3>Modul Talent</h3>
+              <p>Unduh Modul Talent. Password diberikan setelah lolos probation.</p>
+              <a href="#" data-file-url="https://drive.usercontent.google.com/u/0/uc?id=1BTRxYLuCt1YnA1POhEUaGp20qm4IGq6V&export=download" onclick="showPasswordPopup('modulTalent')">Unduh</a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+      <p>&copy; 2024 Sleepcallmu - Dashboard talent.</p>
+  </div>
+
+  <!-- Password Popup -->
+  <div id="passwordPopup" class="password-popup">
+      <div class="popup-content">
+          <h3>Masukkan Kata Sandi</h3>
+          <input type="password" id="password" placeholder="Kata Sandi">
+          <button onclick="verifyPassword()">Verifikasi</button>
+          <div id="errorMessage" class="error-message">Kata sandi salah. Coba lagi.</div>
+      </div>
+  </div>
+
+  <script>
+      let currentDownloadUrl = '';
+
+      function showPasswordPopup(docType) {
+          document.getElementById('passwordPopup').style.display = 'flex';
+          document.getElementById('passwordPopup').dataset.docType = docType;
+          currentDownloadUrl = event.target.getAttribute('data-file-url');
+      }
+
+      function verifyPassword() {
+          const password = document.getElementById('password').value;
+          const docType = document.getElementById('passwordPopup').dataset.docType;
+          const correctPassword = docType === 'rulesTalent' ? 'rules123' : 'modul123'; // Contoh kata sandi
+
+          if (password === correctPassword) {
+                // Initiate download by creating a temporary link
+                const link = document.createElement('a');
+                link.href = currentDownloadUrl;
+                link.download = ''; // Optional: Specify a filename if needed
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                document.getElementById('passwordPopup').style.display = 'none';
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.fade-in, .slide-in');
+
+      function checkVisibility() {
+          const viewportHeight = window.innerHeight;
+          sections.forEach(section => {
+              const { top, bottom } = section.getBoundingClientRect();
+              if (top < viewportHeight && bottom > 0) {
+                  section.classList.add('visible');
+              } else {
+                  section.classList.remove('visible');
+              }
+          });
+      }
+
+      window.addEventListener('scroll', checkVisibility);
+      checkVisibility(); // Initial check
+  });
+
+  </script>
+</body>
+</html>
+
